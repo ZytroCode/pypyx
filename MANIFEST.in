@@ -1,0 +1,2 @@
+include pypyx/core/config/pypyx.ini
+recursive-include data *
