@@ -9,11 +9,12 @@ from configparser import ConfigParser
 class Config(sys.modules[__name__].__class__):
     # Getting the configuration file
     file = ConfigParser()
+    configs = [
+        f"{os.getcwd()}\\pypyx.ini",
+        f"{os.path.dirname(__file__)}\\pypyx.ini"
+    ]
 
-    path = f"{os.getcwd()}\\pypyx.ini"
-    default_path = f"{os.path.dirname(__file__)}\\pypyx.ini"
-
-    file.read([default_path, path])
+    file.read(configs)
 
 
 sys.modules[__name__].__class__ = Config
