@@ -13,5 +13,8 @@ pip install pypyx
 ## Contributing
 Contributions are welcome! Please make sure to update tests as appropriate.
 
+## Inspiration
+Inspired by the [Ursina](https://www.ursinaengine.org/) game engine ʕ •ᴥ•ʔゝ□
+
 ## License
 [MIT License](https://github.com/ZytroCode/pypyx/blob/master/LICENSE)
