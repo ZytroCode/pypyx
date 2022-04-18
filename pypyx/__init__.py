@@ -7,3 +7,4 @@ from pypyx import core
 
 # Importing
 from pygame import _sdl2 as SDL2
+from pypyx import utils
