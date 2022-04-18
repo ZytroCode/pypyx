@@ -29,9 +29,12 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements/dev.txt ]; then pip install -r requirements/dev.txt; fi
         if [ -f requirements/common.txt ]; then pip install -r requirements/common.txt; fi
+    - name: Clone pypyx
+      run: |
+        git clone https://github.com/ZytroCode/pypyx pypyx_test
     - name: Lint with flake8
       run: |
         flake8
     - name: Test with pytest
       run: |
-        pytest
+        pytest pypyx_test
