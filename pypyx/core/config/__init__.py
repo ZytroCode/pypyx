@@ -5,7 +5,6 @@ import sys
 from configparser import ConfigParser
 
 
-# Config class
 class Config(sys.modules[__name__].__class__):
     # Getting the configuration file
     file = ConfigParser()

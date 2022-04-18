@@ -6,10 +6,7 @@ import sys
 from pypyx.core import config
 
 
-# Core class
 class Core(sys.modules[__name__].__class__):
-
-    # Init function
     @classmethod
     def init(self):
         # Managing configurations
@@ -29,8 +26,12 @@ class Core(sys.modules[__name__].__class__):
 
         # Initializing
         import pygame
-
         pygame.init()
+
+    @classmethod
+    def quit(self):
+        import pygame
+        pygame.quit()
 
 
 Core.init()
