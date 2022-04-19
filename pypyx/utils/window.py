@@ -25,3 +25,7 @@ class Window(object):
         )
         self.renderer = SDL2.Renderer(self.display, **RENDERER_KEYS)
         self.renderer.draw_color = (0, 0, 0, 255)
+
+    def fill(self, color: pygame.Color = (0, 0, 0, 255)) -> None:
+        self.clear()
+        self.renderer.draw_color = (0, 0, 0, 255)
