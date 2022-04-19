@@ -29,3 +29,6 @@ class Window(object):
     def fill(self, color: pygame.Color = (0, 0, 0, 255)) -> None:
         self.clear()
         self.renderer.draw_color = (0, 0, 0, 255)
+
+    def clear(self) -> None:
+        self.renderer.clear()
