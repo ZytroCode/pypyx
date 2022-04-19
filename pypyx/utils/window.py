@@ -28,6 +28,16 @@ class Window(object):
         self.clear()
         self.update()
 
+    def __getattr__(self, name: str) -> Any:
+        if name == "events":
+            return [event for event in self._events if getattr(event, "window", None) is not None]
+
+        try:
+            super().__getattr__(name)
+        except AttributeError:
+            error = AttributeError(f"'{self.__class__.__name__}' object has no attribute '{name}'")
+            raise error
+
     def fill(self, color: pygame.Color = (0, 0, 0, 255)) -> None:
         self.clear()
         self.renderer.draw_color = (0, 0, 0, 255)
