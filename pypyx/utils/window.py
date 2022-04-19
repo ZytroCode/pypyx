@@ -32,3 +32,7 @@ class Window(object):
 
     def clear(self) -> None:
         self.renderer.clear()
+
+    def update(self) -> None:
+        self.renderer.present()
+        self._events = pygame.event.get()
