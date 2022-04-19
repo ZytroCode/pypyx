@@ -24,8 +24,7 @@ class Window(object):
             vsync=keys.get("vsync", True),
         )
         self.renderer = SDL2.Renderer(self.display, **RENDERER_KEYS)
-        self.renderer.draw_color = (0, 0, 0, 255)
-        self.clear()
+        self.fill()
         self.update()
 
     def __getattr__(self, name: str) -> Any:
