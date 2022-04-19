@@ -5,7 +5,6 @@ from pypyx import SDL2
 from typing import Any
 
 
-        self.renderer = SDL2.Renderer(self.display)
 class Window(object):
     def __init__(self, **keys) -> None:
         # Setting up display
@@ -15,3 +14,14 @@ class Window(object):
         self.height = keys.get("height", 600)
         self.display.size = keys.get("size", (self.width, self.height))
         self.display.position = keys.get("position", SDL2.WINDOWPOS_CENTERED)
+
+        if keys.get("visible", True):
+            self.display.show()
+
+        # Setting up renderer
+        RENDERER_KEYS = dict(
+            accelerated=keys.get("accelerated", 1),
+            vsync=keys.get("vsync", True),
+        )
+        self.renderer = SDL2.Renderer(self.display, **RENDERER_KEYS)
+        self.renderer.draw_color = (0, 0, 0, 255)
