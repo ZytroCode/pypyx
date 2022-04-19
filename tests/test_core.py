@@ -1,5 +1,8 @@
 import pypyx
 
+from pypyx.utils.window import Window
+
 
 def test_core():
-    pass
+    window = Window()
+    pypyx.core.quit()
