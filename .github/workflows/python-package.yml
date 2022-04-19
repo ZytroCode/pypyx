@@ -29,6 +29,10 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements/dev.txt ]; then pip install -r requirements/dev.txt; fi
         if [ -f requirements/common.txt ]; then pip install -r requirements/common.txt; fi
+        python -m pip install -e .
     - name: Lint with flake8
       run: |
         flake8
+    - name: Pytest
+      run: |
+        pytest
