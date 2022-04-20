@@ -1,5 +1,6 @@
 # Importing
 import os
+import platform
 import pypyx
 import sys
 
@@ -7,6 +8,9 @@ from configparser import ConfigParser
 
 
 class Core(sys.modules[__name__].__class__):
+    if platform.system() == "Linux":
+        os.environ["SDL_VIDEODRIVER"] = "dummy"
+
     config = ConfigParser()
     config.read([
         f"{os.getcwd()}/pypyx.ini",  # Custom configuration by user
