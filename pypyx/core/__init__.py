@@ -16,6 +16,8 @@ class Core(sys.modules[__name__].__class__):
     @classmethod
     def init(self):
         # Managing configurations
+        file = f"{os.path.dirname(__file__)}\\pypyx.ini"
+        raise Exception(f"{file} {os.path.exists(file)}")
         PYPYX = self.config["pypyx"]
         PYGAME = self.config["pygame"]
 
