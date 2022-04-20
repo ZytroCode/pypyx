@@ -7,7 +7,7 @@ With PyPyx's features, the limits of your games are unlimited.
 # Configs
 __version__ = "0.2.0"
 __author__ = "ZytroCode"
-__all__ = []
+__all__ = ["Window"]
 
 # Core
 from pypyx import core
@@ -15,3 +15,5 @@ from pypyx import core
 # Tools
 from pygame import _sdl2 as SDL2
 from pypyx import utils
+from pypyx.utils import window
+from pypyx.utils.window import Window
