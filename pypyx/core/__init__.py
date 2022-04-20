@@ -3,19 +3,25 @@ import os
 import pypyx
 import sys
 
-from pypyx.core import config
+from configparser import ConfigParser
 
 
 class Core(sys.modules[__name__].__class__):
+    config = ConfigParser()
+    config.read([
+        f"{os.getcwd()}\\pypyx.ini",  # Custom configuration by user
+        f"{os.path.dirname(__file__)}\\pypyx.ini",  # Default configuration
+    ])
+
     @classmethod
     def init(self):
         # Managing configurations
-        cfg = dict(config.file)
-        DEFAULT = cfg.get("pypyx")
-        PYGAME = cfg.get("pygame")
-        self.debug = DEFAULT.getboolean("debug")
+        PYPYX = self.config["pypyx"]
+        PYGAME = self.config["pygame"]
 
+        self.debug = PYPYX.getboolean("debug")
         self.pygame_support_prompt = PYGAME.getboolean("pygame_support_prompt")
+
         if not self.pygame_support_prompt:
             os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 

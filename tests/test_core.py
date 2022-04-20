@@ -1,5 +1,5 @@
 import pypyx
 
 
-def test_core():
-    pass
+def test_quit():
+    pypyx.core.quit()

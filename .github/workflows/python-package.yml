@@ -3,11 +3,7 @@
 
 name: Python package
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -29,10 +25,9 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements/dev.txt ]; then pip install -r requirements/dev.txt; fi
         if [ -f requirements/common.txt ]; then pip install -r requirements/common.txt; fi
-        python -m pip install -e .
     - name: Lint with flake8
       run: |
         flake8
-    - name: Pytest
+    - name: Install package
       run: |
-        pytest
+        python -m pip install -e .
