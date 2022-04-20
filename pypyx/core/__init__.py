@@ -9,8 +9,8 @@ from configparser import ConfigParser
 class Core(sys.modules[__name__].__class__):
     config = ConfigParser()
     config.read([
-        f"{os.getcwd()}\\pypyx.ini",  # Custom configuration by user
-        f"{os.path.dirname(__file__)}\\pypyx.ini",  # Default configuration
+        f"{os.getcwd()}/pypyx.ini",  # Custom configuration by user
+        f"{os.path.dirname(__file__)}/pypyx.ini",  # Default configuration
     ])
 
     @classmethod
