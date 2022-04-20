@@ -1,5 +1,6 @@
 # Importing
 import os
+import platform
 import pypyx
 import sys
 
@@ -9,7 +10,6 @@ from configparser import ConfigParser
 class Core(sys.modules[__name__].__class__):
     if platform.system() == "Linux":
         os.environ["SDL_VIDEODRIVER"] = "dummy"
-        os.environ['DISPLAY'] = ': 0.0'
 
     config = ConfigParser()
     config.read([
@@ -20,8 +20,6 @@ class Core(sys.modules[__name__].__class__):
     @classmethod
     def init(self):
         # Managing configurations
-        file = f"{os.path.dirname(__file__)}/pypyx.ini"
-        raise Exception(f"{file} {os.path.exists(file)}")
         PYPYX = self.config["pypyx"]
         PYGAME = self.config["pygame"]
 
