@@ -1,6 +1,5 @@
 # Importing
 import os
-import platform
 import pypyx
 import sys
 
@@ -8,7 +7,7 @@ from configparser import ConfigParser
 
 
 class Core(sys.modules[__name__].__class__):
-    if platform.system() == "Linux":
+    if os.name == "linux":
         os.environ["SDL_VIDEODRIVER"] = "dummy"
         os.environ["DISPLAY"] = ": 0.0"
 
