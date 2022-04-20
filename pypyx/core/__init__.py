@@ -7,6 +7,10 @@ from configparser import ConfigParser
 
 
 class Core(sys.modules[__name__].__class__):
+    if platform.system() == "Linux":
+        os.environ["SDL_VIDEODRIVER"] = "dummy"
+        os.environ['DISPLAY'] = ': 0.0'
+
     config = ConfigParser()
     config.read([
         f"{os.getcwd()}/pypyx.ini",  # Custom configuration by user
