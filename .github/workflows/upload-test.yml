@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Upload Python Package
+name: Upload Test
 
 on:
   release:
@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   deploy:
-    if: "!github.event.release.prerelease"
+    if: "github.event.release.prerelease"
 
     runs-on: windows-latest
 
@@ -37,4 +37,4 @@ jobs:
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
         user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
