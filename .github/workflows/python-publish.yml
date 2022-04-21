@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   deploy:
-    if: "github.event.release.prerelease"
+    if: "!github.event.release.prerelease"
 
     runs-on: windows-latest
 
