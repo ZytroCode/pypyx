@@ -1,6 +1,5 @@
 # Importing
 import os
-import platform
 import pypyx
 import sys
 
@@ -8,7 +7,7 @@ from configparser import ConfigParser
 
 
 class Core(sys.modules[__name__].__class__):
-    if platform.system() == "Linux":
+    if os.name == "linux":
         os.environ["SDL_VIDEODRIVER"] = "dummy"
 
     config = ConfigParser()
@@ -16,6 +15,8 @@ class Core(sys.modules[__name__].__class__):
         f"{os.getcwd()}/pypyx.ini",  # Custom configuration by user
         f"{os.path.dirname(__file__)}/pypyx.ini",  # Default configuration
     ])
+
+    vsync_available = None
 
     @classmethod
     def init(self):
