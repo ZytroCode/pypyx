@@ -1,6 +1,7 @@
 # Importing
 import pygame
 
+from pypyx import core
 from pypyx import SDL2
 from typing import Any
 
@@ -18,11 +19,23 @@ class Window(object):
         self.resizable = keys.get("resizable", True)
 
         # Setting up renderer
-        self.renderer = SDL2.Renderer(
-            self.display,
-            accelerated=keys.get("accelerated", 1),
-            vsync=keys.get("vsync", True),
-        )
+        try:
+            self.renderer = SDL2.Renderer(
+                self.display,
+                accelerated=keys.get("accelerated", 1),
+                vsync=keys.get("vsync", True),
+            )
+        except SDL2.sdl2.error:
+            core.vsync_available = False
+            if core.debug:
+                print("[PYX] Vsync is not supported for your display")
+            self.renderer = SDL2.Renderer(
+                self.display,
+                accelerated=keys.get("accelerated", 1),
+                vsync=False,
+            )
+        else:
+            core.vsync_available = True
         self.clear()
         self.update()
 

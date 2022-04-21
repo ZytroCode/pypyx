@@ -9,13 +9,14 @@ from configparser import ConfigParser
 class Core(sys.modules[__name__].__class__):
     if os.name == "linux":
         os.environ["SDL_VIDEODRIVER"] = "dummy"
-        os.environ["DISPLAY"] = ": 0.0"
 
     config = ConfigParser()
     config.read([
         f"{os.getcwd()}/pypyx.ini",  # Custom configuration by user
         f"{os.path.dirname(__file__)}/pypyx.ini",  # Default configuration
     ])
+
+    vsync_available = None
 
     @classmethod
     def init(self):
