@@ -7,13 +7,20 @@ With PyPyx's features, the limits of your games are unlimited.
 # Configs
 __version__ = "0.2.3"
 __author__ = "ZytroCode"
-__all__ = ["Window"]
+__all__ = [
+    "Rect",
+    "Window",
+    "Color",
+]
 
 # Core
 from pypyx import core
 
 # Tools
 from pygame import _sdl2 as SDL2
+from pygame import Color
+from pypyx import entity
 from pypyx import utils
+from pypyx.entity.rect import Rect
 from pypyx.utils import window
 from pypyx.utils.window import Window
