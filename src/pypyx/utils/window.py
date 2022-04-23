@@ -98,6 +98,12 @@ class Window:
         else:
             self.__dict__[name] = value
 
+    def draw(self, entity) -> None:
+        position = (
+            (entity.x - entity.width/2) + self.center[0],
+            (entity.y - entity.height/2) + self.center[1],
+        )
+        entity.__draw__(self.renderer).draw(dstrect=position)
 
     def fill(self, color: pygame.Color = (20, 20, 20, 255)) -> None:
         self.renderer.target = None
