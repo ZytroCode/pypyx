@@ -10,6 +10,7 @@ __author__ = "ZytroCode"
 __all__ = [
     "Rect",
     "Ellipse",
+    "Sprite",
     "Window",
     "Color",
 ]
