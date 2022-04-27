@@ -27,7 +27,7 @@ class Rect:
         width: int,
         height: int,
         color: pygame.Color = (255, 255, 255),
-        angle: int = 0
+        angle: int = 0,
     ):
         self.x = x
         self.y = y
@@ -73,9 +73,9 @@ class Rect:
         else:
             self.__dict__[name] = value
 
-    def __draw__(self, renderer: SDL2.Renderer) -> None:
-        image = pygame.Surface(self.size)
-        image.fill(self.color)
+    def __draw__(self, renderer: SDL2.Renderer) -> SDL2.Image:
+        image = pygame.Surface(self.size, pygame.SRCALPHA)
+        pygame.draw.rect(image, self.color, (0, 0, self.width, self.height))
         image = pygame.transform.rotate(image, self.angle)
         image = SDL2.Texture.from_surface(renderer, image)
         return SDL2.Image(image)
