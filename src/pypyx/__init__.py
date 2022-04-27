@@ -9,6 +9,7 @@ __version__ = "0.2.3"
 __author__ = "ZytroCode"
 __all__ = [
     "Rect",
+    "Ellipse",
     "Window",
     "Color",
 ]
