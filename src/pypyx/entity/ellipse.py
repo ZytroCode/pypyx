@@ -5,7 +5,7 @@ from pypyx import SDL2
 from typing import Any
 
 
-class Rect:
+class Ellipse:
     __dict__ = {}
     getters = {
         "position": lambda self: (self.x, self.y),
@@ -75,7 +75,7 @@ class Rect:
 
     def __draw__(self, renderer: SDL2.Renderer) -> SDL2.Image:
         image = pygame.Surface(self.size, pygame.SRCALPHA)
-        pygame.draw.rect(image, self.color, (0, 0, self.width, self.height))
+        pygame.draw.ellipse(image, self.color, (0, 0, self.width, self.height))
         image = pygame.transform.rotate(image, self.angle)
         image = SDL2.Texture.from_surface(renderer, image)
         return SDL2.Image(image)

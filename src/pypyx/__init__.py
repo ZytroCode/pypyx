@@ -9,6 +9,8 @@ __version__ = "0.2.3"
 __author__ = "ZytroCode"
 __all__ = [
     "Rect",
+    "Ellipse",
+    "Sprite",
     "Window",
     "Color",
 ]
@@ -21,6 +23,5 @@ from pygame import _sdl2 as SDL2
 from pygame import Color
 from pypyx import entity
 from pypyx import utils
-from pypyx.entity.rect import Rect
-from pypyx.utils import window
-from pypyx.utils.window import Window
+from pypyx.entity import *
+from pypyx.utils import *
