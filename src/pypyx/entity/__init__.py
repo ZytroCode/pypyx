@@ -1,3 +1,10 @@
+# Configs
+__all__ = [
+    "Rect",
+    "Ellipse",
+    "Sprite",
+]
+
 # Importing
 from pypyx.entity import rect
 from pypyx.entity import ellipse
