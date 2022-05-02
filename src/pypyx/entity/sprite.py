@@ -1,8 +1,12 @@
 # Importing
+import logging
 import pygame
 
 from pypyx import SDL2
 from typing import Any
+
+# LOGGING
+logger = logging.getLogger(__name__)
 
 
 class Sprite:
@@ -23,6 +27,9 @@ class Sprite:
         self.x = x
         self.y = y
         self.angle = angle
+
+        # LOGGING
+        logger.info(f"Create Sprite: {self}")
 
     def __getattr__(self, name: str) -> Any:
         try:

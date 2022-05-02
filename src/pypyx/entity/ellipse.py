@@ -1,8 +1,12 @@
 # Importing
+import logging
 import pygame
 
 from pypyx import SDL2
 from typing import Any
+
+# LOGGING
+logger = logging.getLogger(__name__)
 
 
 class Ellipse:
@@ -35,6 +39,9 @@ class Ellipse:
         self.height = height
         self.color = color
         self.angle = angle
+
+        # LOGGING
+        logger.info(f"Create Ellipse: {self}")
 
     def __getattr__(self, name: str) -> Any:
         try:

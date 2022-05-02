@@ -1,9 +1,13 @@
 # Importing
+import logging
 import pygame
 
 from pypyx import core
 from pypyx import SDL2
 from typing import Any
+
+# LOGGING
+logger = logging.getLogger(__name__)
 
 
 class Window:
@@ -59,6 +63,9 @@ class Window:
             core.vsync_available = True
         self.clear()
         self.update()
+
+        # LOGGING
+        logger.info(f"Create Window: ID {self.display.id}")
 
     def __getattr__(self, name: str) -> Any:
         try:
